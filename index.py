@@ -36,13 +36,19 @@ async def on_message(message):
     return
 
   if message.content.lower().startswith("para com isso"):
-    await message.channel.send("beleza chefia tá liberado")
-    liberado = True
+    if liberado == False:
+      await message.channel.send("beleza chefia tá liberado")
+      liberado = True
     return
     
   if message.content.lower().startswith("coloca eles no chinelo"):
-    await message.channel.send("é pra já kkkkkkkkkk")
-    liberado = False
+    if liberado == True:
+      await message.channel.send("é pra já kkkkkkkkkk")
+      liberado = False
+      return
+
+  if message.content.lower().startswith("qual teu ping"):
+    await message.channel.send(f"Tô pingando uns **{round(client.latency * 1000)}ms** agora")
     return
 
   if liberado == False:
