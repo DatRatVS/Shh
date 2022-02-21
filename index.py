@@ -29,15 +29,18 @@ async def on_message(message):
   
   global liberado
 
+  try: liberado
+  except NameError: liberado = True
+
   if message.author == client.user:
     return
 
-  if message.content.startswith("para com isso"):
+  if message.content.lower().startswith("para com isso"):
     await message.channel.send("beleza chefia tá liberado")
     liberado = True
     return
     
-  if message.content.startswith("coloca eles no chinelo"):
+  if message.content.lower().startswith("coloca eles no chinelo"):
     await message.channel.send("é pra já kkkkkkkkkk")
     liberado = False
     return
@@ -57,7 +60,18 @@ async def on_message(message):
       "VOCÊ NÃO PODE SE AJUDAR A CALAR A BOCA?",
       "vai ser contratado pro vasco se continuar falando mlk, para logo",
       "uiuiui, um sistema unificado pras universidades, CALA A PORRA DA BOCA NINGUEM LIGA",
-      "que corte de cabelo dahora mano, KKKKKKKKKKKKKKKKK AGORA TE CALA"
+      "que corte de cabelo dahora mano, KKKKKKKKKKKKKKKKK AGORA TE CALA",
+      "deu até ânsia de tanto que tu fala mlk, fica xiu",
+      "mano tu parece o voyager 3, PARA, DE, FALAR",
+      "tu tem problema mlk só pode",
+      "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk seu inútil, CALA A PORRA DA BOCA",
+      "pindamonhangabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "🤫🤫🤫🤫🤫🤫🤫🤫",
+      "parou?",
+      "vai dormir caralho, tu tem que calar a porra da boca",
+      "paraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "meu deeeeeeeeeeeeeeeus vai arrumar algo pra fazer seu vagabundo inútil",
+      "porra de rolê cosmico caralho, kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
     ]
 
     await message.delete()
