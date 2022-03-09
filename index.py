@@ -35,25 +35,33 @@ async def on_message(message):
   if message.author == client.user:
     return
 
-  if message.content.lower().startswith("para com isso"):
-    if liberado == False:
-      await message.channel.send("beleza chefia tá liberado")
-      liberado = True
-    return
+  if message.channel.id == "465617696763936769":
     
-  if message.content.lower().startswith("coloca eles no chinelo"):
-    if liberado == True:
-      await message.channel.send("é pra já kkkkkkkkkk")
-      liberado = False
+    if message.author.id == 258041633789050881:
+      if message.content.lower().startswith("para com isso"):
+        if liberado == False:
+          await message.channel.send("beleza chefia tá liberado")
+          liberado = True
+        return
+    else:
+      print("nem era o luke falando, então foda-se")
+
+    if message.author.id == 258041633789050881:  
+      if message.content.lower().startswith("coloca eles no chinelo"):
+        if liberado == True:
+          await message.channel.send("é pra já kkkkkkkkkk")
+          liberado = False
+          return
+    else:
+      print("nem era o luke falando, então foda-se")
+
+    if message.content.lower().startswith("qual teu ping"):
+      await message.channel.send(f"Tô pingando uns **{round(client.latency * 1000)}ms** agora")
       return
 
-  if message.content.lower().startswith("qual teu ping"):
-    await message.channel.send(f"Tô pingando uns **{round(client.latency * 1000)}ms** agora")
-    return
+    if liberado == False:
 
-  if liberado == False:
-
-    frases = [
+      frases = [
       "na minha epoca as pessoas não falavam, fica xiu",
       "vai dar meia hora de bunda com o relógio parado",
       "eu não quero conversar com você cara, some",
@@ -78,11 +86,14 @@ async def on_message(message):
       "paraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "meu deeeeeeeeeeeeeeeus vai arrumar algo pra fazer seu vagabundo inútil",
       "porra de rolê cosmico caralho, kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
-    ]
+      ]
 
-    await message.delete()
-    await message.channel.send(f"{message.author.mention}, {random.choice(frases)}")
-    return
+      await message.delete()
+      await message.channel.send(f"{message.author.mention}, {random.choice(frases)}")
+      return
+  else:
+    print("detectei uma mensagem no canal errado, entao foda-se")
+
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
